@@ -12,7 +12,7 @@ export default function Tabella(props){
 
 
     const elimina = async (id) =>{
-        const response = await fetch(`http://localhost:8080/alunni/${id}` , {method:"DELETE"});
+        const response = await fetch(`http://10.22.9.28:8080/alunni/${id}` , {method:"DELETE"});
         const body = await response.json();
         await Richiesta();
     }
@@ -26,7 +26,7 @@ export default function Tabella(props){
   
     const Richiesta = async () => {
         setLoading(true);
-        const response = await fetch('http://localhost:8080/alunni', {method:"GET"});
+        const response = await fetch('http://10.22.9.28:8080/alunni', {method:"GET"});
         const body = await response.json();
         await setData(body);
     }
@@ -39,7 +39,7 @@ export default function Tabella(props){
     const gestisciSubmit = async (event) => {
         event.preventDefault();
 
-        const response = await fetch('http://localhost:8080/alunni', {headers: {
+        const response = await fetch('http://10.22.9.28:8080/alunni', {headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
           }, method:"POST", body: JSON.stringify({nome: nome, cognome: cognome})});
@@ -76,6 +76,7 @@ export default function Tabella(props){
                             </label>
                             <br />
                         <input type="submit" />
+                        <button onClick={() => setFormState(false)}>Annulla</button>
                         </form>
                     </>
                 )
