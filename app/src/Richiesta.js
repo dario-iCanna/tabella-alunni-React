@@ -37,7 +37,6 @@ export default function Tabella(props){
     }
 
     const gestisciSubmit = async (event) => {
-        event.preventDefault();
 
         const response = await fetch('http://10.22.9.28:8080/alunni', {headers: {
             'Accept': 'application/json',
@@ -57,7 +56,7 @@ export default function Tabella(props){
             </table>
                 {formState ? (
                     <>
-                        <form onSubmit={gestisciSubmit}>
+                        <div>
 
                             <label>Inserisci nome: 
                                 <input 
@@ -75,9 +74,9 @@ export default function Tabella(props){
                                 />
                             </label>
                             <br />
-                        <input type="submit" />
+                        <button onClick={gestisciSubmit}>Salva</button>
                         <button onClick={() => setFormState(false)}>Annulla</button>
-                        </form>
+                        </div>
                     </>
                 )
                 : 
