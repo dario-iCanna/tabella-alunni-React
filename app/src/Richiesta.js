@@ -14,6 +14,7 @@ export default function Tabella(props){
         const response = await fetch(`http://localhost:8080/alunni/${id}` , {method:"DELETE"});
         const body = await response.json();
         await Richiesta();
+        setFormState(-1);
     }
 
 
