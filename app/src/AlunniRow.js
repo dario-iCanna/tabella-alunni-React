@@ -6,6 +6,7 @@ export default function AlunniRow(props) {
     const id = props.id;
     const nome = props.nome;
     const cognome = props.cognome;
+    const setFormState = props.setFormState;
     const [conferma, setConferma] = useState(false);
 
 
@@ -27,6 +28,11 @@ export default function AlunniRow(props) {
             )
             }
             
+        </td>
+        <td>
+            {
+                <button onClick={() => setFormState(id)}>Modifica</button>
+            }
         </td>
     </tr>);
 }
